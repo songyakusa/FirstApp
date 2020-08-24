@@ -12,15 +12,15 @@ import androidx.navigation.Navigation
 import com.example.firstapp.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 
-class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityMainBinding
 
-    private  lateinit var drawerLayout: DrawerLayout
+    private lateinit var drawerLayout: DrawerLayout
 
-    private  lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var toggle: ActionBarDrawerToggle
 
-    private  lateinit var  nav_view: NavigationView
+    private lateinit var nav_view: NavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
         nav_view = binding.navView
         nav_view.setNavigationItemSelectedListener(this)
 
-        toggle = ActionBarDrawerToggle(this,drawerLayout, R.string.open,R.string.close)
+        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
@@ -40,31 +40,40 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
     }
 
     override fun onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
 
-        }else{
+        } else {
             super.onBackPressed()
         }
-        val  intent = Intent(applicationContext, MainActivity ::class.java)
+        val intent = Intent(applicationContext, MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
 
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId){
-            R.id.aboutme ->{
+        when (item.itemId) {
+            R.id.aboutme -> {
                 supportFragmentManager.beginTransaction()
                     .replace(
                         R.id.fragment_contain
-
+                        , Aboutme()
 
                     )
+                    .commit()
+            }
+            R.id.aboutme -> {
+                supportFragmentManager.beginTransaction()
+                    .replace(
+                        R.id.fragment_contain
+                        , Aboutme()
+
+                    )
+                    .commit()
             }
         }
     }
-
 
 
 }
