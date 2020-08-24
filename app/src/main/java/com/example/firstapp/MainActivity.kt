@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     )
                     .commit()
             }
-            R.id.aboutme -> {
+            R.id.contact -> {
                 supportFragmentManager.beginTransaction()
                     .replace(
                         R.id.fragment_contain
