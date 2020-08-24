@@ -9,11 +9,9 @@ import androidx.room.Update
 @Dao
 interface NamelistDao {
     @Insert
-    suspend fun insertNamelist(contactList: Namelist):Long
+    fun insertName(namelist: Namelist)
 
-    @Query("SELECT * FROM namelist_table")
-    fun getAllContactList(): LiveData<List<Namelist>>
+    @Query("SELECT * FROM namelist_table ")
+    fun getName(): LiveData<List<Namelist>>
 
-    @Update
-    suspend fun updateContactList(contactList: Namelist): Int
 }

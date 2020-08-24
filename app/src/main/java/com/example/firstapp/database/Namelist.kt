@@ -9,6 +9,7 @@ import androidx.room.PrimaryKey
 data class Namelist (
 
     @PrimaryKey(autoGenerate = true)
+    var contactId: Long = 0L,
 
     @ColumnInfo(name = "contactList_name")
     var name:String
