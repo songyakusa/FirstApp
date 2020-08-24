@@ -1,8 +1,12 @@
 package com.example.firstapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
+import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.Navigation
 import com.example.firstapp.databinding.ActivityMainBinding
@@ -21,5 +25,37 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        drawerLayout = binding.drawerLayout
+        nav_view = binding.navView
+        nav_view.setNavigationItemSelectedListener(this)
+
+        toggle = ActionBarDrawerToggle(this,drawerLayout, R.string.open,R.string.close)
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
     }
+
+    override fun onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START)
+
+        }else{
+            super.onBackPressed()
+        }
+        val  intent = Intent(applicationContext, MainActivity ::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        startActivity(intent)
+
+    }
+
+    override fun onNavigationItemSelected(p0: MenuItem): Boolean {
+        when (i)
+    }
+
+
+
 }
