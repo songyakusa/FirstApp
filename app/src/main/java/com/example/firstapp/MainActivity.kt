@@ -52,8 +52,17 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
 
     }
 
-    override fun onNavigationItemSelected(p0: MenuItem): Boolean {
-        when (i)
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId){
+            R.id.aboutme ->{
+                supportFragmentManager.beginTransaction()
+                    .replace(
+                        R.id.fragment_contain
+
+
+                    )
+            }
+        }
     }
 
 
