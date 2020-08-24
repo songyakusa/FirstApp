@@ -32,13 +32,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         nav_view.setNavigationItemSelectedListener(this)
 
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
+
         drawerLayout.addDrawerListener(toggle)
+
         toggle.syncState()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
     }
-
+ // click  back  to activity
     override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
@@ -51,7 +53,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         startActivity(intent)
 
     }
-
+  // fun click menu  aboutme and contact
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.aboutme -> {
@@ -77,7 +79,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
-
+   // click teb show menu
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(toggle.onOptionsItemSelected(item)){
             return true
