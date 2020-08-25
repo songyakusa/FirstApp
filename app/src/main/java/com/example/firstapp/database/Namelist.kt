@@ -11,5 +11,5 @@ data class Namelist(
     var namelistId: Long = 0L,
 
     @ColumnInfo(name = "name")
-    var name: String
+    var name: String = ""
 )

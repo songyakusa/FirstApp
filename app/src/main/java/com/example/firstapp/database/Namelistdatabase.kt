@@ -9,7 +9,7 @@ import com.example.newfirstapp.database.Namelist
 @Database(entities = [Namelist::class], version = 1, exportSchema = false)
 abstract  class Namelistdatabase : RoomDatabase() {
 
-    abstract val contactDao: NamelistDao
+    abstract val namelistDao : NamelistDao
 
     companion object {
 

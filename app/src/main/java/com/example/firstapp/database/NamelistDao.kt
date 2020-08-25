@@ -10,9 +10,12 @@ import com.example.newfirstapp.database.Namelist
 @Dao
 interface NamelistDao {
     @Insert
-    fun insertName(namelist: Namelist)
+    fun insert(namelist: Namelist)
 
     @Query("SELECT * FROM namelist_table ORDER BY namelistId DESC")
-    fun getName(): LiveData<List<Namelist>>
+    fun getToname(): Namelist?
+
+    @Query("SELECT * FROM namelist_table ORDER BY namelistId DESC")
+    fun getAll(): LiveData<List<Namelist>>
 
 }
